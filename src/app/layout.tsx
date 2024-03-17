@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 
 import { ThemeProvider } from '@/app/themeProviders';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import './globals.css';
 
@@ -25,10 +26,13 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${pop.className} bg-grid-small-black/[0.3] dark:bg-grid-small-white/[0.2] scroll-smooth bg-white text-black duration-700 dark:bg-[#12181B] dark:text-white`}
+        className={`${pop.className} scroll-smooth bg-white text-black duration-700 bg-grid-small-black/[0.3] dark:bg-[#12181B] dark:text-white dark:bg-grid-small-white/[0.2]`}
       >
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <main>{children}</main>
+          <main>
+            {children}
+            <SpeedInsights />
+          </main>
         </ThemeProvider>
       </body>
     </html>
