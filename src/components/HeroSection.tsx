@@ -24,7 +24,9 @@ const Hero_Section = () => {
       <TextRevealCard text='Dreamy Player' revealText='Sai Kumar Bungapatla' />
       <p className={`text-xl font-medium`}>a Full-stack Developer.</p>
       <div className='mb-4 mt-3 flex gap-5'>
+        <Link href={'/saikumar_Resume.docx.pdf'}>
         <GradientButtons text='📃 Check Resume' />
+        </Link>
         <Link href={'https://github.com/Dreamyplayer'}>
           <GradientButtons text='✨ Github Profile' />
         </Link>
