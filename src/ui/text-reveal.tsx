@@ -56,7 +56,7 @@ export const TextRevealCard = ({
       onMouseLeave={mouseLeaveHandler}
       onMouseMove={mouseMoveHandler}
       ref={cardRef}
-      className={cn('relative flex w-[27rem] items-center justify-center overflow-hidden', className)}
+      className={cn('relative flex md:lg:w-[27rem] w-[22rem] items-center justify-center overflow-hidden', className)}
     >
       {children}
 
@@ -82,7 +82,7 @@ export const TextRevealCard = ({
             // style={{
             //   textShadow: '4px 4px 15px rgba(255,54,545,1.5)',
             // }}
-            className={`mx-6 my-1 w-[25rem] text-4xl font-medium tracking-tight`}
+            className={`mx-6 my-1 w-[25rem] md:lg:text-4xl text-2xl font-medium tracking-tight`}
           >
             {revealText}
           </h1>
@@ -98,7 +98,7 @@ export const TextRevealCard = ({
         ></motion.div>
 
         <div className=' overflow-hidden '>
-          <p className={`mx-24 my-1 w-[45rem] text-4xl font-medium tracking-tight`}>{text}</p>
+          <p className={`mx-24 my-1 w-[45rem] md:lg:text-4xl text-2xl font-medium tracking-tight`}>{text}</p>
           {/* <MemoizedStars /> */}
         </div>
       </div>

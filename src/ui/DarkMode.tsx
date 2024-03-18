@@ -43,7 +43,7 @@ const DarkModeSwitch = () => {
   };
 
   return (
-    <div className='mx-10 flex h-10 w-fit items-center justify-center'>
+    <div className='md:lg:mx-10 flex h-10 w-fit items-center justify-center'>
       {ThemeModes.map((mode, i) => (
         <IconButton
           key={i}

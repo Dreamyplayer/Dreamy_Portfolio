@@ -66,7 +66,7 @@ export const AnimatedTooltip = ({
                   rotate: rotate,
                   whiteSpace: 'nowrap',
                 }}
-                className='absolute -left-1/2 -top-16 z-50 flex translate-x-1/2  flex-col items-center justify-center rounded-md bg-black px-4 py-2 text-xs shadow-xl'
+                className='absolute md:lg:-left-1/2 -right-8 -top-16 z-50 flex translate-x-1/2  flex-col items-center justify-center rounded-md bg-black px-4 py-2 text-xs shadow-xl'
               >
                 <div className='absolute inset-x-8 bottom-0  z-30 h-px w-[30%] bg-gradient-to-r from-transparent via-emerald-500 to-transparent dark:-bottom-px ' />
                 <div className='absolute bottom-0 left-12 z-30 h-px w-[40%] bg-gradient-to-r from-transparent via-sky-500 to-transparent dark:-bottom-px ' />
@@ -79,10 +79,10 @@ export const AnimatedTooltip = ({
             onMouseMove={handleMouseMove}
             height={100}
             width={100}
-            title='sdfsfsdfsf'
+            title='Dreamy.'
             src={item.image}
             alt={item.name}
-            className='relative !m-0 h-14 w-14 rounded-full border-2 border-black object-cover object-top !p-0 transition duration-500  group-hover:z-30 group-hover:scale-110 dark:border-white'
+            className='relative !m-0 md:lg:h-14 md:lg:w-14 h-10 w-10 rounded-full border-2 border-black object-cover object-top !p-0 transition duration-500  group-hover:z-30 group-hover:scale-110 dark:border-white'
           />
         </div>
       ))}
