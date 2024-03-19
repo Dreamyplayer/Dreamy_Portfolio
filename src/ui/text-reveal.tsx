@@ -76,12 +76,9 @@ export const TextRevealCard = ({
                 }
           }
           transition={isMouseOver ? { duration: 0 } : { duration: 0.6 }}
-          className='absolute z-20 bg-white will-change-transform bg-grid-small-black/[0.2] dark:bg-[#12181B] dark:bg-grid-small-white/[0.2]'
+          className='absolute z-20 bg-white will-change-transform bg-grid-small-black/[0.2] dark:bg-[#121316] dark:bg-grid-small-white/[0.2]'
         >
           <h1
-            // style={{
-            //   textShadow: '4px 4px 15px rgba(255,54,545,1.5)',
-            // }}
             className={`mx-6 my-1 w-[25rem] md:lg:text-4xl text-2xl font-medium tracking-tight`}
           >
             {revealText}
