@@ -5,7 +5,7 @@ import { SparklesCore } from '@/ui/sparkles';
 
 export default function Home() {
   return (
-    <main className='mt-10 h-auto'>
+    <main className='lg:mt-10 mt-5 h-auto'>
       {/* Core component */}
       <SparklesCore
         background='transparent'
