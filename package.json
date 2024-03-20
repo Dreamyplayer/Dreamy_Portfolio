@@ -10,6 +10,7 @@
     "clean": "rm .next -r && next dev"
   },
   "dependencies": {
+    "@next/third-parties": "^14.1.4",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.14",
     "mini-svg-data-uri": "^1.4.4",
