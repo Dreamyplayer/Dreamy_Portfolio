@@ -3,10 +3,10 @@
 import { useEffect, useState } from 'react';
 
 import IconButton from '@/components/IconButton';
-import { Light, Moon, System } from '@/components/svgs';
+import { SVGIcons } from '@/components/svgs';
 import { useTheme } from 'next-themes';
 
-type ThemeMode = {
+export type ThemeMode = {
   Mode: 'light' | 'dark' | 'system';
   Icon: JSX.Element;
 };
@@ -14,15 +14,15 @@ type ThemeMode = {
 const ThemeModes: ThemeMode[] = [
   {
     Mode: 'light',
-    Icon: <Light />,
+    Icon: <SVGIcons type={'light'} />,
   },
   {
     Mode: 'system',
-    Icon: <System />,
+    Icon: <SVGIcons type={'system'} />,
   },
   {
     Mode: 'dark',
-    Icon: <Moon />,
+    Icon: <SVGIcons type={'dark'} />,
   },
 ];
 
@@ -43,12 +43,12 @@ const DarkModeSwitch = () => {
   };
 
   return (
-    <div className='flex h-10 w-fit items-center justify-center md:lg:mx-10'>
+    <div className='z-10 flex items-center justify-center md:mx-10 lg:mx-10'>
       {ThemeModes.map((mode, i) => (
         <IconButton
           key={i}
           defaultIcon={mode.Icon}
-          classname={theme === mode.Mode ? 'dark:bg-black rounded-full ring-1 ring-white/10 bg-zinc-950' : ''}
+          classname={theme === mode.Mode ? 'dark:bg-black rounded-xl ring-1 ring-white/10 bg-zinc-950' : ''}
           onClickHandle={() => handleModeChange(mode.Mode)}
         />
       ))}
