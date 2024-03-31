@@ -1,7 +1,7 @@
 import svgToDataUri from 'mini-svg-data-uri';
 import type { Config } from 'tailwindcss';
 
-const colors = require('tailwindcss/colors');
+// const colors = require('tailwindcss/colors');
 const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenColorPalette');
 
 const addVariablesForColors = ({ addBase, theme }: any) => {
@@ -20,6 +20,20 @@ const config: Config = {
     './src/ui/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   darkMode: ['class'],
+  theme: {
+    extend: {
+      animation: {
+        scroll: 'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
+      },
+      keyframes: {
+        scroll: {
+          to: {
+            transform: 'translate(calc(-50% - 0.5rem))',
+          },
+        },
+      },
+    },
+  },
   plugins: [
     addVariablesForColors,
     function ({ matchUtilities, theme }: any) {
