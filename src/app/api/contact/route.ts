@@ -1,9 +1,8 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(req: NextRequest, _res: NextResponse) {
   if (req.method !== 'POST') {
-    return res.status(405).end(); // Method Not Allowed
+    return true; // Method Not Allowed
   }
 
   const data = await new Response(req.body).text();
