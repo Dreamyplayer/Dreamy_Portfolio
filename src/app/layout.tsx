@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${pop.className} scroll-smooth bg-[#FCFCFC] text-black transition duration-700 bg-grid-small-black/[0.3] dark:bg-[#121316] dark:text-white dark:bg-grid-small-white/[0.2]`}
+        className={`${pop.className} scroll-smooth bg-[#F5F2FF] text-black transition-colors duration-500 bg-grid-small-black/[0.3] dark:bg-[#121316] dark:text-white dark:bg-grid-small-white/[0.2]`}
       >
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           <>
