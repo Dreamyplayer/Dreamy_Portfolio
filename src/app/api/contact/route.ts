@@ -1,11 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { NextResponse } from 'next/server';
 
-export async function GET(req: NextApiRequest) {
-  const data = await new Response(req.body).text();
-  return NextResponse.json({ message: data });
-}
-
 export async function POST(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.status(405).end(); // Method Not Allowed
