@@ -7,7 +7,14 @@ import { InfiniteMovingCards } from '@/ui/infinite-moving';
 export const InfiniteMoving = () => {
   return (
     <div className='relative flex flex-col items-center justify-center overflow-hidden rounded-md antialiased'>
-      <InfiniteMovingCards items={SKill_items} direction='right' speed='normal' />
+      <InfiniteMovingCards items={SKill_items} direction='right' speed='normal'>
+        {SKill_items.map((item, idx) => (
+          <div key={idx} className='flex flex-col items-center justify-center gap-y-2'>
+            <Image src={item.src} width={100} height={100} className='h-8 w-8 rounded-md' alt={item.title} />
+            <p className='rounded-md bg-white px-2 py-1 text-xs font-semibold text-black'>{item.title}</p>
+          </div>
+        ))}
+      </InfiniteMovingCards>
     </div>
   );
 };

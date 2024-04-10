@@ -2,16 +2,14 @@
 
 import React, { useEffect, useState } from 'react';
 
-import Image from 'next/image';
-
 import { cn } from '@/utils/cn';
 
 export const InfiniteMovingCards = ({
-  items,
   direction = 'left',
   speed = 'fast',
   pauseOnHover = true,
   className,
+  children,
 }: {
   items: {
     title: string;
@@ -21,6 +19,7 @@ export const InfiniteMovingCards = ({
   speed?: 'fast' | 'normal' | 'slow';
   pauseOnHover?: boolean;
   className?: string;
+  children: React.ReactNode;
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
@@ -81,12 +80,7 @@ export const InfiniteMovingCards = ({
           pauseOnHover && 'hover:[animation-play-state:paused]',
         )}
       >
-        {items.map((item, idx) => (
-          <div key={idx} className='flex flex-col items-center justify-center gap-y-2'>
-            <Image src={item.src} width={100} height={100} className='h-8 w-8 rounded-md' alt={item.title} />
-            <p className='rounded-md bg-white px-2 py-1 text-xs font-semibold text-black'>{item.title}</p>
-          </div>
-        ))}
+        {children}
       </ul>
     </div>
   );
