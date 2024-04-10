@@ -1,16 +1,14 @@
-import {
-  About,
-  Avatar,
-  Blogs,
-  ComingSoon,
-  ContactMe,
-  Projects,
-  RolePlay,
-  Skills,
-  SocialIcons,
-  Stacks,
-  UI,
-} from '@/components/contentComponents';
+import { About } from '@/components/GridItems/About';
+import { Avatar } from '@/components/GridItems/Avatar';
+import { Blogs } from '@/components/GridItems/Blogs';
+import { ComingSoon } from '@/components/GridItems/ComingSoon';
+import { ContactModel } from '@/components/GridItems/ContactUsModel';
+import { Projects } from '@/components/GridItems/Projects';
+import { RolePlay } from '@/components/GridItems/RolePlay';
+import { Skills } from '@/components/GridItems/Skills';
+import { SocialIcons } from '@/components/GridItems/SocialMedia';
+import { Stacks } from '@/components/GridItems/Stack';
+import { UI } from '@/components/GridItems/UI';
 import { BentoGrid, BentoGridItem } from '@/ui/BentoUI';
 
 const BentoBoxes = () => {
@@ -20,7 +18,7 @@ const BentoBoxes = () => {
         <BentoGridItem
           key={i}
           content={items.content}
-          className={`${i === 0 || i === 5 || i === 10 || i === 8 ? 'md:col-span-2' : i === 7 ? 'md:row-span-1 lg:-mt-32 lg:h-96' : i === 3 ? 'h-32 border-none' : ''} `}
+          className={`${i === 0 || i === 5 || i === 8 ? 'md:col-span-2' : i === 7 ? 'md:row-span-1 lg:-mt-32 lg:h-96' : i === 3 ? 'h-32 border-none' : i === 10 ? 'z-20 md:col-span-2' : ''}`}
         />
       ))}
     </BentoGrid>
@@ -31,47 +29,36 @@ export default BentoBoxes;
 
 const contentItems = [
   {
-    title: 'asdasd',
     content: <RolePlay />,
   },
   {
-    title: 'asdasd',
     content: <UI />,
   },
   {
-    title: 'asdasd',
     content: <Projects />,
   },
   {
-    title: 'asdasd',
     content: <SocialIcons />,
   },
   {
-    title: 'asdasd',
     content: <Avatar />,
   },
   {
-    title: 'asdasd',
     content: <About />,
   },
   {
-    title: 'asdasd',
     content: <Stacks />,
   },
   {
-    title: 'asdasd',
     content: <Blogs />,
   },
   {
-    title: 'asdasd',
     content: <Skills />,
   },
   {
-    title: 'asdasd',
     content: <ComingSoon />,
   },
   {
-    title: 'asdasd',
-    content: <ContactMe />,
+    content: <ContactModel />,
   },
 ];
