@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function POST(req: NextRequest, _res: NextResponse) {
-  if (req.method !== 'POST') {
-    return true; // Method Not Allowed
-  }
-
+export async function POST(req: NextRequest, res: NextResponse) {
   const data = await new Response(req.body).text();
   console.log('Form data:', data);
   try {
