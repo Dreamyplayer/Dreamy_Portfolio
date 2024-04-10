@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'cdn.iconscout.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'media1.tenor.com',
+      },
     ],
   },
 };
