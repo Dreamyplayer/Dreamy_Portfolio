@@ -27,12 +27,12 @@ const TypingEffect = () => {
     <>
       {showText && (
         <p
-          className={`${rockSaltFont.className} absolute -mt-10 mr-[12rem] text-xs tracking-widest text-[#0070F3] md:mt-1 md:text-sm lg:mr-[18.5rem] lg:mt-4 lg:text-base`}
+          className={`${rockSaltFont.className} absolute -mt-10 mr-[13.5rem] text-xs tracking-widest text-[#0070F3] md:mt-1 md:text-sm lg:mr-[18.5rem] lg:mt-4 lg:text-base`}
         >
           <TypeIt options={{ cursorChar: ' ' }}>aka</TypeIt>
         </p>
       )}
-      <div className='flex items-center justify-center bg-gradient-to-br from-slate-300 to-slate-500 bg-clip-text text-2xl font-medium tracking-tight text-transparent md:lg:text-4xl'>
+      <div className='flex items-center justify-center bg-gradient-to-br from-slate-300 to-slate-500 bg-clip-text text-2xl font-semibold tracking-tight text-transparent md:lg:text-4xl'>
         <TypeIt
           options={{
             cursorChar: ' ',

@@ -3,6 +3,7 @@
 import React from 'react';
 
 import Image from 'next/image';
+import { useTheme } from 'next-themes';
 
 import { cn } from '@/utils/cn';
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
@@ -10,9 +11,9 @@ import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 export const BentoGrid = ({ className, children }: { className?: string; children?: React.ReactNode }) => {
   return (
     <div className='my-10 flex items-center justify-center'>
-      <div className='h-full w-[1360px] rounded-xl border border-[#e4e4e7] bg-white px-2 pb-5 dark:border-[#27272a] dark:bg-black lg:h-[940px]'>
+      <div className='h-full w-[1360px] rounded-xl border border-[#e4e4e7] bg-[#fffdf8] px-2 pb-5 dark:border-[#27272a] dark:bg-black lg:h-[940px] z-10'>
         <div className='-mb-12 mt-5 flex items-center justify-center'>
-          <Image src={'/Groupn 246.svg'} width={310} height={40} alt='' className='rounded-xl' />
+          <Image src={'/design_develop_ship.svg'} width={310} height={40} alt='' className='rounded-xl' />
         </div>
         <div
           className={cn(
@@ -30,6 +31,7 @@ export const BentoGrid = ({ className, children }: { className?: string; childre
 export const BentoGridItem = ({ className, content }: { className?: string; content?: React.ReactNode }) => {
   const radius = 500;
   const [visible, setVisible] = React.useState(false);
+  const { theme } = useTheme();
 
   let mouseX = useMotionValue(0);
   let mouseY = useMotionValue(0);
@@ -47,7 +49,7 @@ export const BentoGridItem = ({ className, content }: { className?: string; cont
     radial-gradient(
       ${visible ? radius + 'px' : '0px'} circle at ${mouseX}px ${mouseY}px,
       rgb(255 255 255 / .13),
-      transparent 80%
+      ${theme === 'light' ? 'rgb(244 242 244 / .20)' : 'transparent 80%'}
     )
   `,
       }}
@@ -55,7 +57,7 @@ export const BentoGridItem = ({ className, content }: { className?: string; cont
       onMouseEnter={() => setVisible(true)}
       onMouseLeave={() => setVisible(false)}
       className={cn(
-        'group/bento shadow-input row-span-1 flex items-center justify-center space-y-4 rounded-xl border bg-white p-4 transition duration-200 hover:shadow-xl dark:border-white/[0.2] dark:bg-black dark:shadow-none',
+        'group/bento shadow-input row-span-1 flex items-center justify-center space-y-4 rounded-xl border p-4 transition duration-200 hover:shadow-xl dark:border-white/[0.2] dark:shadow-none',
         className,
       )}
     >

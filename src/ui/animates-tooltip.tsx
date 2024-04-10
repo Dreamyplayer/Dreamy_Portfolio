@@ -77,12 +77,13 @@ export const AnimatedTooltip = ({
           </AnimatePresence>
           <Image
             onMouseMove={handleMouseMove}
+            unoptimized
             height={100}
             width={100}
             title='Dreamy.'
-            src={item.image}
+            src={'https://media1.tenor.com/m/Iv5nneqwvPAAAAAC/rikka-takanashi-tuvigif.gif'}
             alt={item.name}
-            className='relative !m-0 md:lg:h-14 md:lg:w-14 h-10 w-10 rounded-full border-2 border-black object-cover object-top !p-0 transition duration-500  group-hover:z-30 group-hover:scale-110 dark:border-white'
+            className='relative !m-0 md:lg:h-14 md:lg:w-14 h-10 w-10 rounded-full object-cover object-top !p-0 transition duration-500  group-hover:z-30 group-hover:scale-110 '
           />
         </div>
       ))}
