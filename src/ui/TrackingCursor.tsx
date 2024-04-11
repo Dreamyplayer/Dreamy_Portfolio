@@ -41,7 +41,7 @@ const EyesFollow: React.FC<EyesFollowProps> = () => {
   return (
     <div className='relative'>
       <div ref={eyesRef} id='eyes'>
-        <Image src='/luffy.png' width={200} height={200} alt='' />
+        <Image src={'/Luffy.png'} width={200} height={200} alt='One Piece Luffy' />
         <Image
           style={{
             transform: `rotate(${90 + calculateAngle(cursorX, cursorY)}deg)`,
