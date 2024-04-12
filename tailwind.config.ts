@@ -23,7 +23,7 @@ const config: Config = {
   theme: {
     extend: {
       cursor: {
-        'GearBone': `url(/GearBone.png?v=${Date.now()}), pointer`
+        GearBone: `url(/GearBone.png?v=${Date.now()}), pointer`,
       },
       animation: {
         scroll: 'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
