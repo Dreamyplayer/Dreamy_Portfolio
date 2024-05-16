@@ -1,12 +1,15 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 
 import Image from 'next/image';
 
+import useMediaQuery from '@/hooks/use-media-query';
+
 interface EyesFollowProps {}
 
-const EyesFollow: React.FC<EyesFollowProps> = () => {
+const EyesFollow: FC<EyesFollowProps> = () => {
+  const { isMobile } = useMediaQuery();
   const [cursorX, setCursorX] = useState(0);
   const [cursorY, setCursorY] = useState(0);
   const eyesRef = useRef<HTMLDivElement>(null);
@@ -39,7 +42,7 @@ const EyesFollow: React.FC<EyesFollowProps> = () => {
   };
 
   return (
-    <div className='relative'>
+    <div className='relative cursor-default'>
       <div ref={eyesRef} id='eyes'>
         <Image src={'/Luffy.png'} width={200} height={200} alt='One Piece Luffy' />
         <Image
@@ -50,7 +53,7 @@ const EyesFollow: React.FC<EyesFollowProps> = () => {
           width={13}
           height={13}
           alt=''
-          className='absolute left-[75px] top-[83px] rounded-full'
+          className={`absolute left-[75px] top-[83px] rounded-full ${isMobile ? 'hidden' : ''}`}
         />
 
         <Image
@@ -61,7 +64,7 @@ const EyesFollow: React.FC<EyesFollowProps> = () => {
           width={13}
           height={13}
           alt=''
-          className='absolute left-[110px] top-[83px] rounded-full'
+          className={`absolute left-[110px] top-[83px] rounded-full ${isMobile ? 'hidden' : ''}`}
         />
       </div>
     </div>

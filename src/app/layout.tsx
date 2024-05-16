@@ -27,11 +27,10 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${pop.className} scroll-smooth bg-[#F5F2FF] text-black transition-colors duration-500 bg-grid-small-black/[0.3] dark:bg-[#121316] dark:text-white dark:bg-grid-small-white/[0.2]`}
+        className={`${pop.className} scroll-smooth bg-[#F5F2FF] text-black transition-colors duration-300 ease-in-out bg-grid-small-black/[0.3] dark:bg-[#121316] dark:text-white dark:bg-grid-small-white/[0.2]`}
       >
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           <>
-            <div className='pointer-events-none absolute top-0 flex h-[152rem] w-full items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black md:h-[118rem] lg:h-[88rem]'></div>
             {children}
             <SpeedInsights />
           </>

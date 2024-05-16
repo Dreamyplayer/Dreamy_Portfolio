@@ -10,7 +10,7 @@ const HeroSection = () => {
       <div className='my-5'>
         <AnimatedTooltip />
       </div>
-      <h5 className='text-base font-normal lg:text-2xl'>{`Hello, I'm`}</h5>
+      <h5 className='text-base -mt-3 font-normal lg:text-2xl'>{`Hello, I'm`}</h5>
       <TypingEffect />
       <p className='text-base font-medium lg:text-xl'>a Full-stack Developer.</p>
       <div className='mb-4 mt-3 flex flex-col gap-5 md:flex-row lg:flex-row'>

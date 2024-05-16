@@ -1,19 +1,19 @@
 'use client';
 
-import React from 'react';
+import { ReactNode, useState } from 'react';
 
 import Image from 'next/image';
-import { useTheme } from 'next-themes';
 
 import { cn } from '@/utils/cn';
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
+import { useTheme } from 'next-themes';
 
-export const BentoGrid = ({ className, children }: { className?: string; children?: React.ReactNode }) => {
+export const BentoGrid = ({ className, children }: { className?: string; children?: ReactNode }) => {
   return (
     <div className='my-10 flex items-center justify-center'>
-      <div className='h-full w-[1360px] rounded-xl border border-[#e4e4e7] bg-[#fffdf8] px-2 pb-5 dark:border-[#27272a] dark:bg-black lg:h-[940px] z-10'>
+      <div className='z-10 mx-4 h-full w-[1360px] rounded-xl border border-[#e4e4e7] bg-[#fffdf8] px-2 pb-5 dark:border-[#27272a] dark:bg-black lg:h-[940px]'>
         <div className='-mb-12 mt-5 flex items-center justify-center'>
-          <Image src={'/design_develop_ship.svg'} width={310} height={40} alt='' className='rounded-xl' />
+          <Image src={'/design_develop_ship.svg'} width={310} height={40} alt='' className='h-auto w-auto' />
         </div>
         <div
           className={cn(
@@ -28,9 +28,9 @@ export const BentoGrid = ({ className, children }: { className?: string; childre
   );
 };
 
-export const BentoGridItem = ({ className, content }: { className?: string; content?: React.ReactNode }) => {
+export const BentoGridItem = ({ className, content }: { className?: string; content?: ReactNode }) => {
   const radius = 500;
-  const [visible, setVisible] = React.useState(false);
+  const [visible, setVisible] = useState(false);
   const { theme } = useTheme();
 
   let mouseX = useMotionValue(0);
