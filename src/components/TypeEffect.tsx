@@ -32,7 +32,7 @@ const TypingEffect = () => {
           <TypeIt options={{ cursorChar: ' ' }}>aka</TypeIt>
         </p>
       )}
-      <div className='flex items-center justify-center bg-gradient-to-br from-slate-300 to-slate-500 bg-clip-text text-2xl font-semibold tracking-tight text-transparent md:lg:text-4xl'>
+      <div className='flex items-center justify-center bg-gradient-to-br from-[#d8dbe9] to-[#727a9a] bg-clip-text text-2xl font-semibold tracking-tight text-transparent md:lg:text-4xl'>
         <TypeIt
           options={{
             cursorChar: ' ',

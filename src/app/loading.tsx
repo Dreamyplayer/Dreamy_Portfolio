@@ -24,7 +24,7 @@ export default function Loading() {
         Loading
         <div className='ml-1 h-2 w-2 animate-bounce rounded-full bg-rose-500 font-bold [animation-delay:-0.3s]'>.</div>
         <div className='h-2 w-2 animate-bounce rounded-full bg-yellow-500 font-bold [animation-delay:-0.15s]'>.</div>
-        <div className='h-2 w-2 animate-bounce rounded-full bg-rose-500 font-bold'>.</div>
+        <div className='h-2 w-2 animate-bounce rounded-full bg-green-500 font-bold'>.</div>
       </button>
     </div>
   );
