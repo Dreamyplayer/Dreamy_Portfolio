@@ -11,6 +11,11 @@ export default function useMediaQuery() {
     height: number;
   } | null>(null);
 
+  const [pageDimensions, setPageDimensions] = useState<{
+    width: number;
+    height: number;
+  } | null>(null);
+
   useEffect(() => {
     const checkDevice = () => {
       if (window.matchMedia('(min-width: 300px) and (max-width: 640px)').matches) {
@@ -23,6 +28,7 @@ export default function useMediaQuery() {
         setDevice('desktop');
       }
       setDimensions({ width: window.innerWidth, height: window.innerHeight });
+      setPageDimensions({ width: window.document.body.scrollWidth, height: window.document.body.scrollHeight });
     };
 
     // Initial detection
@@ -41,6 +47,8 @@ export default function useMediaQuery() {
     device,
     width: dimensions?.width,
     height: dimensions?.height,
+    pageWidth: pageDimensions?.width,
+    pageHeight: pageDimensions?.height,
     isMobile: device === 'mobile',
     isTablet: device === 'tablet',
     isDesktop: device === 'desktop',
