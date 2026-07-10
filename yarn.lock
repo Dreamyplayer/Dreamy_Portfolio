@@ -822,14 +822,6 @@
   resolved "https://registry.yarnpkg.com/@tsparticles/plugin-rgb-color/-/plugin-rgb-color-4.3.1.tgz#64da31da7a7f96a96656de63c4b89fa6d049c124"
   integrity sha512-/OUvvEaACeI1z/m79uGt+zG7XR8oTwgpnl4LEZ+I+Z7IGr4Cwyt+wr6P/7SrKooKHgDSyyNnnLHr1BNhFEV1cQ==
 
-"@tsparticles/preset-stars@^4.3.1":
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/@tsparticles/preset-stars/-/preset-stars-4.3.1.tgz#ea5f7a634fc0c29290add022acd442ff21272332"
-  integrity sha512-g0QgcVJQnX3C4LoNBiAZgoVH2IeJAfugg1zhb3ASt4EJiPzPkAQuqYLGedLIufBMpSKUO3woQi8XPAY6qxWv4w==
-  dependencies:
-    "@tsparticles/basic" "4.3.1"
-    "@tsparticles/engine" "4.3.1"
-
 "@tsparticles/react@^4.3.1":
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/@tsparticles/react/-/react-4.3.1.tgz#3dc1649d4dc9e9d1ade3ed911bc3cfba5738cf82"

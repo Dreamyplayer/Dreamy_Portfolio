@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@next/third-parties": "^16.2.10",
-    "@tsparticles/preset-stars": "^4.3.1",
     "@tsparticles/react": "^4.3.1",
     "@tsparticles/slim": "^4.3.1",
     "clsx": "^2.1.1",
