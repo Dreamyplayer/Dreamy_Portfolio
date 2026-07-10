@@ -1,47 +1,35 @@
-import { JSONFilePreset } from 'lowdb/node';
 import { NextRequest, NextResponse } from 'next/server';
 
-type formType = {
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+type FormPayload = {
   name: string;
   email: string;
   message: string;
 };
 
-const dbFilePath = 'db.json';
-
-export async function POST(req: NextRequest, res: NextResponse) {
-  const data = await new Response(req.body).text();
-  const { name, email, message }: formType = JSON.parse(data);
-
-  const defaultData = { forms: [{ name, email, message }] };
-  const db = await JSONFilePreset(dbFilePath, defaultData);
-  await db.update(({ forms }) => forms.push({ name, email, message }));
-
-  console.log('Form data:', data);
+export async function POST(req: NextRequest) {
   try {
-    return NextResponse.json(req.body);
-  } catch (error) {
-    console.error('Error processing form:', error);
-    return NextResponse.json({ error });
-  }
-}
+    const { name, email, message }: FormPayload = await req.json();
 
-export async function GET(req: NextRequest, res: NextResponse) {
-  const apiKey = req.nextUrl.searchParams.get('api_key');
-  if (!apiKey || apiKey !== process.env.API_KEY) {
-    return NextResponse.json({ message: 'Unauthorized: Invalid API key' }, { status: 401 });
-  }
+    if (!name || !email || !message) {
+      return NextResponse.json({ error: 'Missing fields' }, { status: 400 });
+    }
 
-  const db = await JSONFilePreset(dbFilePath, {});
-  await db.read();
-  const data = db.data;
-
-  try {
-    return NextResponse.json(data, {
-      status: 200,
+    await resend.emails.send({
+      // Must be a domain verified in your Resend account, or use 'onboarding@resend.dev' for testing.
+      from: 'Portfolio Contact <onboarding@resend.dev>',
+      to: process.env.CONTACT_EMAIL as string,
+      replyTo: email,
+      subject: `New portfolio message from ${name}`,
+      text: `From: ${name} (${email})\n\n${message}`,
     });
+
+    return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Error processing form:', error);
-    return NextResponse.json({ error });
+    console.error('Error sending contact email:', error);
+    return NextResponse.json({ error: 'Failed to send message' }, { status: 500 });
   }
 }
