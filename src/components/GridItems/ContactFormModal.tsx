@@ -1,14 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 type Status = 'idle' | 'sending' | 'sent' | 'error';
 
 export const ContactFormModal = ({ open, onCloseAction }: { open: boolean; onCloseAction: () => void }) => {
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const [status, setStatus] = useState<Status>('idle');
   const [form, setForm] = useState({ name: '', email: '', message: '' });
 
-  if (!open) return null;
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    if (open && !dialog.open) dialog.showModal();
+    if (!open && dialog.open) dialog.close();
+  }, [open]);
 
   const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,11 +34,17 @@ export const ContactFormModal = ({ open, onCloseAction }: { open: boolean; onClo
   };
 
   return (
-    <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4' onClick={onCloseAction}>
-      <div
-        className='w-full max-w-md rounded-xl border border-black/10 bg-white p-6 shadow-2xl dark:border-white/10 dark:bg-[#121316]'
-        onClick={e => e.stopPropagation()}
-      >
+    <dialog
+      ref={dialogRef}
+      onClose={onCloseAction}
+      onClick={e => {
+        // native `close` event already fires on Escape; this handles
+        // clicks landing on the ::backdrop (target === the dialog itself).
+        if (e.target === dialogRef.current) onCloseAction();
+      }}
+      className='m-auto w-full max-w-md rounded-xl border border-black/10 bg-white p-0 shadow-2xl backdrop:bg-black/50 dark:border-white/10 dark:bg-[#121316]'
+    >
+      <div className='p-6'>
         <div className='mb-4 flex items-center justify-between'>
           <h3 className='text-lg font-bold'>{`Let's talk`}</h3>
           <button
@@ -87,7 +99,7 @@ export const ContactFormModal = ({ open, onCloseAction }: { open: boolean; onClo
           </form>
         )}
       </div>
-    </div>
+    </dialog>
   );
 };
 

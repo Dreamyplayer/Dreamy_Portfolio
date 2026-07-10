@@ -13,6 +13,8 @@ const people = [
   },
 ];
 
+const springConfig = { stiffness: 100, damping: 5 };
+
 export const AnimatedTooltip = ({
   items = people,
 }: {
@@ -24,7 +26,6 @@ export const AnimatedTooltip = ({
   }[];
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const springConfig = { stiffness: 100, damping: 5 };
   const x = useMotionValue(0); // going to set this value on mouse move
   // rotate the tooltip
   const rotate = useSpring(useTransform(x, [-100, 100], [-45, 45]), springConfig);
@@ -37,7 +38,7 @@ export const AnimatedTooltip = ({
 
   return (
     <>
-      {items.map((item) => (
+      {items.map(item => (
         <div
           className='group relative -mr-4'
           key={item.name}

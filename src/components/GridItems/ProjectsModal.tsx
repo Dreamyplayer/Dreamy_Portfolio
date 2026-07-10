@@ -2,20 +2,32 @@
 
 import { projects, statusStyles } from '@/components/data/projects';
 import Link from 'next/link';
+import { useEffect, useRef } from 'react';
 
 export const ProjectsModal = ({ open, onCloseAction }: { open: boolean; onCloseAction: () => void }) => {
-  if (!open) return null;
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    if (open && !dialog.open) dialog.showModal();
+    if (!open && dialog.open) dialog.close();
+  }, [open]);
 
   return (
-    <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4' onClick={onCloseAction}>
-      <div
-        className='max-h-[85vh] w-full max-w-4xl overflow-y-auto rounded-xl border border-black/10 bg-white p-6 shadow-2xl dark:border-white/10 dark:bg-[#121316]'
-        onClick={e => e.stopPropagation()}
-      >
+    <dialog
+      ref={dialogRef}
+      onClose={onCloseAction}
+      onClick={e => {
+        if (e.target === dialogRef.current) onCloseAction();
+      }}
+      className='m-auto max-h-[85vh] w-full max-w-4xl overflow-y-auto rounded-xl border border-black/10 bg-white p-0 shadow-2xl backdrop:bg-black/50 dark:border-white/10 dark:bg-[#121316]'
+    >
+      <div className='p-6'>
         <div className='mb-5 flex items-center justify-between'>
           <h3 className='text-lg font-bold'>Projects</h3>
           <button
-          type='button'
+            type='button'
             onClick={onCloseAction}
             className='text-sm text-neutral-500 hover:text-neutral-900 dark:hover:text-white'
           >
@@ -64,7 +76,7 @@ export const ProjectsModal = ({ open, onCloseAction }: { open: boolean; onCloseA
           ))}
         </div>
       </div>
-    </div>
+    </dialog>
   );
 };
 

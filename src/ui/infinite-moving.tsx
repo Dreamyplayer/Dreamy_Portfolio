@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/utils/cn';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 
 export const InfiniteMovingCards = ({
   direction = 'left',
@@ -22,48 +22,35 @@ export const InfiniteMovingCards = ({
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
-  const [start, setStart] = useState(false);
+  // Starts true directly — useLayoutEffect below duplicates the DOM
+  // synchronously before paint, so there's no visible unduplicated frame
+  // to gate against, and no state written from a mount effect.
+  const [start] = useState(true);
 
-  useEffect(() => {
-    function addAnimation() {
-      if (containerRef.current && scrollerRef.current) {
-        const scrollerContent = Array.from(scrollerRef.current.children);
+  // useLayoutEffect (not useEffect): must clone children before the browser
+  // paints, or the un-duplicated list flashes for one frame.
+  useLayoutEffect(() => {
+    if (containerRef.current && scrollerRef.current) {
+      const scrollerContent = Array.from(scrollerRef.current.children);
 
-        scrollerContent.forEach(item => {
-          const duplicatedItem = item.cloneNode(true);
-          scrollerRef.current?.appendChild(duplicatedItem);
-        });
-
-        getDirection();
-        getSpeed();
-        setStart(true);
-      }
+      scrollerContent.forEach(item => {
+        const duplicatedItem = item.cloneNode(true);
+        scrollerRef.current?.appendChild(duplicatedItem);
+      });
     }
-
-    addAnimation();
   }, []);
 
-  const getDirection = () => {
-    if (containerRef.current) {
-      if (direction === 'left') {
-        containerRef.current.style.setProperty('--animation-direction', 'forwards');
-      } else {
-        containerRef.current.style.setProperty('--animation-direction', 'reverse');
-      }
-    }
-  };
+  // Keep direction/speed CSS vars in sync without re-duplicating cards.
+  useEffect(() => {
+    if (!containerRef.current) return;
 
-  const getSpeed = () => {
-    if (containerRef.current) {
-      if (speed === 'fast') {
-        containerRef.current.style.setProperty('--animation-duration', '20s');
-      } else if (speed === 'normal') {
-        containerRef.current.style.setProperty('--animation-duration', '40s');
-      } else {
-        containerRef.current.style.setProperty('--animation-duration', '80s');
-      }
-    }
-  };
+    containerRef.current.style.setProperty('--animation-direction', direction === 'left' ? 'forwards' : 'reverse');
+
+    containerRef.current.style.setProperty(
+      '--animation-duration',
+      speed === 'fast' ? '20s' : speed === 'normal' ? '40s' : '80s',
+    );
+  }, [direction, speed]);
 
   return (
     <div

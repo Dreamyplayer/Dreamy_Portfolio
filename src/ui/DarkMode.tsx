@@ -3,7 +3,7 @@
 import { SVGIcons } from '@/components/svgs';
 import { motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
-import { JSX, useEffect, useState } from 'react';
+import { JSX, useSyncExternalStore } from 'react';
 
 export type ThemeMode = {
   Mode: 'light' | 'dark' | 'system';
@@ -25,13 +25,23 @@ const ThemeModes: ThemeMode[] = [
   },
 ];
 
-const DarkModeSwitch = () => {
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+function subscribe() {
+  return () => {};
+}
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+// Server always renders `false`; client flips to `true` post-hydration.
+// This avoids the theme-mismatch flash without a mount-effect render.
+function useMounted() {
+  return useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false,
+  );
+}
+
+const DarkModeSwitch = () => {
+  const mounted = useMounted();
+  const { theme, setTheme } = useTheme();
 
   if (!mounted) {
     return null;
