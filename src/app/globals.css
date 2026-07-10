@@ -1,6 +1,62 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-/* hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30 */
-/* #ffffff08 */
+/* ---- darkMode: 'class' equivalent ---- */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---- content scanning (explicit, matches old config) ---- */
+@source '../components/**/*.{js,ts,jsx,tsx,mdx}';
+@source '../app/**/*.{js,ts,jsx,tsx,mdx}';
+@source '../ui/**/*.{js,ts,jsx,tsx,mdx}';
+
+/* ---- theme.extend ---- */
+@theme {
+  --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+}
+
+.cursor-GearBone {
+  cursor: url('/GearBone.png'), pointer;
+}
+
+/* Note: addVariablesForColors is no longer needed — Tailwind v4 already
+   exposes every theme color as a --color-* CSS variable automatically. */
+
+/* ---- custom bg-grid-small / bg-dot utilities ----
+   The old JS plugin used matchUtilities() to build an SVG data-URI
+   dynamically for ANY arbitrary color. Plain CSS can't concatenate
+   strings at build time, so that per-arbitrary-color behavior isn't
+   portable to CSS-only config. Below are static utilities baked for
+   the exact colors actually used in this project (white/[0.2] and
+   black/[0.3]). If you need a new color later, generate its data-URI
+   the same way and add another @utility block. */
+
+.bg-grid-pattern {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='8' height='8' fill='none' stroke='rgb(0 0 0 / 0.3)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+}
+
+:where(.dark, .dark *) .bg-grid-pattern {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='8' height='8' fill='none' stroke='rgb(255 255 255 / 0.2)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+}
+
+.bg-dot-white {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3e%3ccircle fill='rgb(255 255 255 / 1)' id='pattern-circle' cx='10' cy='10' r='1.6257413380501518'%3e%3c/circle%3e%3c/svg%3e");
+}
+
+.bg-dot-black {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3e%3ccircle fill='rgb(0 0 0 / 1)' id='pattern-circle' cx='10' cy='10' r='1.6257413380501518'%3e%3c/circle%3e%3c/svg%3e");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
