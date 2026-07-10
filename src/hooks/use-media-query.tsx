@@ -29,25 +29,46 @@ function readState(): MediaState {
   };
 }
 
-let cached: MediaState | null = null;
+let cached: MediaState | undefined;
 
 function subscribe(callback: () => void) {
-  const handleResize = () => {
-    cached = readState();
-    callback();
+  const onResize = () => callback();
+
+  window.addEventListener('resize', onResize);
+
+  return () => {
+    window.removeEventListener('resize', onResize);
   };
-  window.addEventListener('resize', handleResize);
-  return () => window.removeEventListener('resize', handleResize);
 }
 
 function getSnapshot(): MediaState {
-  if (!cached) cached = readState();
+  const next = readState();
+
+  if (
+    cached &&
+    cached.width === next.width &&
+    cached.height === next.height &&
+    cached.pageWidth === next.pageWidth &&
+    cached.pageHeight === next.pageHeight
+  ) {
+    return cached;
+  }
+
+  cached = next;
   return cached;
 }
 
 // SSR has no window — return a neutral default, resolved on hydration.
+const SERVER_SNAPSHOT: MediaState = {
+  device: 'desktop',
+  width: 0,
+  height: 0,
+  pageWidth: 0,
+  pageHeight: 0,
+};
+
 function getServerSnapshot(): MediaState {
-  return { device: 'desktop', width: 0, height: 0, pageWidth: 0, pageHeight: 0 };
+  return SERVER_SNAPSHOT;
 }
 
 export default function useMediaQuery() {
