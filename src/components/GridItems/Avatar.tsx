@@ -5,6 +5,7 @@ export const Avatar = () => {
     <div className='flex flex-col items-center justify-center'>
       <Image
         src={'/download.png'}
+        priority
         className='rounded-xl object-cover hover:origin-bottom hover:-rotate-2'
         width={900}
         height={900}

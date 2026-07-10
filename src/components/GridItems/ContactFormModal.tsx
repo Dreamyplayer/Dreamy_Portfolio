@@ -10,7 +10,7 @@ export const ContactFormModal = ({ open, onCloseAction }: { open: boolean; onClo
 
   if (!open) return null;
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('sending');
     try {

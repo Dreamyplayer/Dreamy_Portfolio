@@ -1,10 +1,9 @@
-import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
-
 import { ThemeProvider } from '@/app/themeProviders';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-
+import { MotionConfig } from 'framer-motion';
+import type { Metadata } from 'next';
+import { Poppins } from 'next/font/google';
 import './globals.css';
 
 const pop = Poppins({
@@ -25,15 +24,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html suppressHydrationWarning lang='en'>
+      <head>
+        <meta name='darkreader-lock' content='' />
+      </head>
       <body
-        className={`${pop.className} scroll-smooth bg-[#F5F2FF] text-black transition-colors duration-300 ease-in-out bg-grid-small-black/[0.3] dark:bg-[#121316] dark:text-white dark:bg-grid-small-white/[0.2]`}
+        suppressHydrationWarning
+        className={`${pop.className} bg-grid-pattern scroll-smooth bg-[#F5F2FF] text-black transition-colors duration-300 ease-in-out dark:bg-[#121316] dark:text-white`}
       >
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <>
-            {children}
-            <SpeedInsights />
-          </>
+          <MotionConfig reducedMotion='user'>
+            <>
+              {children}
+              <SpeedInsights />
+            </>
+          </MotionConfig>
         </ThemeProvider>
       </body>
       <GoogleAnalytics gaId='G-DQMJQRSSK2' />

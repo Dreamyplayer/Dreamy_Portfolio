@@ -1,6 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-
 import { JSONFilePreset } from 'lowdb/node';
+import { NextRequest, NextResponse } from 'next/server';
 
 type formType = {
   name: string;

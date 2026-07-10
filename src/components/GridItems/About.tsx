@@ -1,8 +1,7 @@
 'use client';
 
-import Image from 'next/image';
-
 import useMediaQuery from '@/hooks/use-media-query';
+import Image from 'next/image';
 
 export const About = () => {
   const { isMobile } = useMediaQuery();

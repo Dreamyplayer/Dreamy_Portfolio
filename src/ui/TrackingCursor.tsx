@@ -1,10 +1,8 @@
 'use client';
 
-import { FC, useEffect, useRef, useState } from 'react';
-
-import Image from 'next/image';
-
 import useMediaQuery from '@/hooks/use-media-query';
+import Image from 'next/image';
+import { FC, useEffect, useRef, useState } from 'react';
 
 interface EyesFollowProps {}
 
@@ -53,7 +51,7 @@ const EyesFollow: FC<EyesFollowProps> = () => {
           width={13}
           height={13}
           alt=''
-          className={`absolute left-[75px] top-[83px] rounded-full ${isMobile ? 'hidden' : ''}`}
+          className={`absolute left-18.75 top-20.75 rounded-full ${isMobile ? 'hidden' : ''}`}
         />
 
         <Image
@@ -64,7 +62,7 @@ const EyesFollow: FC<EyesFollowProps> = () => {
           width={13}
           height={13}
           alt=''
-          className={`absolute left-[110px] top-[83px] rounded-full ${isMobile ? 'hidden' : ''}`}
+          className={`absolute left-27.5 top-20.75 rounded-full ${isMobile ? 'hidden' : ''}`}
         />
       </div>
     </div>

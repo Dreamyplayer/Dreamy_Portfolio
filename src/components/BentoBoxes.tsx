@@ -1,14 +1,14 @@
 import { About } from '@/components/GridItems/About';
 import { Avatar } from '@/components/GridItems/Avatar';
-import { Blogs } from '@/components/GridItems/Blogs';
 import { ComingSoon } from '@/components/GridItems/ComingSoon';
 import { ContactModel } from '@/components/GridItems/ContactUsModel';
-import { Projects } from '@/components/GridItems/Projects';
+import { GithubStats } from '@/components/GridItems/GithubStats';
+import NowBuilding from '@/components/GridItems/NowBuilding';
+import ProjectsTeaser from '@/components/GridItems/ProjectsTeaser';
 import { RolePlay } from '@/components/GridItems/RolePlay';
 import { Skills } from '@/components/GridItems/Skills';
 import { SocialIcons } from '@/components/GridItems/SocialMedia';
-import { Stacks } from '@/components/GridItems/Stack';
-import { UI } from '@/components/GridItems/UI';
+import UIUX from '@/components/GridItems/UIUX';
 import { BentoGrid, BentoGridItem } from '@/ui/BentoUI';
 
 const BentoBoxes = () => {
@@ -16,7 +16,7 @@ const BentoBoxes = () => {
     <BentoGrid className='mx-auto mt-20 max-w-7xl'>
       {contentItems.map((items, i) => (
         <BentoGridItem
-          key={i}
+          key={i + 'content'}
           content={items.content}
           className={`${i === 0 || i === 5 || i === 8 ? 'md:col-span-2' : i === 7 ? 'md:row-span-1 lg:-mt-32 lg:h-96' : i === 3 ? 'h-32 border-none' : i === 10 ? 'z-20 md:col-span-2' : ''}`}
         />
@@ -32,10 +32,10 @@ const contentItems = [
     content: <RolePlay />,
   },
   {
-    content: <UI />,
+    content: <UIUX />,
   },
   {
-    content: <Projects />,
+    content: <ProjectsTeaser />,
   },
   {
     content: <SocialIcons />,
@@ -47,10 +47,10 @@ const contentItems = [
     content: <About />,
   },
   {
-    content: <Stacks />,
+    content: <NowBuilding />,
   },
   {
-    content: <Blogs />,
+    content: <GithubStats />,
   },
   {
     content: <Skills />,

@@ -2,15 +2,13 @@ import Image from 'next/image';
 
 export default function Loading() {
   return (
-    <div
-      className={`flex h-screen flex-col items-center justify-center bg-[#121316] text-white bg-grid-small-white/[0.2]`}
-    >
-      <div className='pointer-events-none absolute top-0 flex h-screen w-full items-center justify-center  bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]'></div>
+    <div className={`dark bg-grid-pattern flex h-screen flex-col items-center justify-center bg-[#121316] text-white`}>
+      <div className='pointer-events-none absolute top-0 flex h-screen w-full items-center justify-center bg-black mask-[radial-gradient(ellipse_at_center,transparent_20%,black)]'></div>
       <Image
-        unoptimized
         height={200}
         width={200}
         priority
+        unoptimized
         title='Loading'
         src={'https://media.tenor.com/ZRHVn5t3nm4AAAAi/sataniasalaught.gif'}
         alt='Loading...'

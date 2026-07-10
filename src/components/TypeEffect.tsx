@@ -1,9 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
 import { Rock_Salt } from 'next/font/google';
-
+import { useEffect, useState } from 'react';
 import TypeIt from 'typeit-react';
 
 const rockSaltFont = Rock_Salt({
@@ -27,12 +25,12 @@ const TypingEffect = () => {
     <>
       {showText && (
         <p
-          className={`${rockSaltFont.className} absolute -mt-10 mr-[13.5rem] text-xs tracking-widest text-[#0070F3] md:mt-1 md:text-sm lg:mr-[18.5rem] lg:mt-4 lg:text-base`}
+          className={`${rockSaltFont.className} absolute -mt-10 mr-54 text-xs tracking-widest text-[#0070F3] md:mt-1 md:text-sm lg:mt-4 lg:mr-74 lg:text-base`}
         >
           <TypeIt options={{ cursorChar: ' ' }}>aka</TypeIt>
         </p>
       )}
-      <div className='flex items-center justify-center bg-gradient-to-br from-[#d8dbe9] to-[#727a9a] bg-clip-text text-2xl font-semibold tracking-tight text-transparent md:lg:text-4xl'>
+      <div className='flex items-center justify-center bg-linear-to-br from-[#d8dbe9] to-[#727a9a] bg-clip-text text-2xl font-semibold tracking-tight text-transparent md:lg:text-4xl'>
         <TypeIt
           options={{
             cursorChar: ' ',

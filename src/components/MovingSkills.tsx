@@ -1,37 +1,19 @@
 'use client';
 
-import Image from 'next/image';
-
 import { InfiniteMovingCards } from '@/ui/infinite-moving';
+import Image from 'next/image';
 
 export const InfiniteMoving = () => {
   return (
     <div className='relative flex flex-col items-center justify-center overflow-hidden rounded-md antialiased'>
       <InfiniteMovingCards items={SKill_items} direction='right' speed='normal'>
-        {SKill_items.map((item, idx) => (
-          <div key={idx} className='flex flex-col items-center justify-center gap-y-2'>
+        {SKill_items.map(item => (
+          <div key={item.title} className='flex flex-col items-center justify-center gap-y-2'>
             <Image src={item.src} width={100} height={100} className='h-8 w-8 rounded-md' alt={item.title} />
             <p className='rounded-md bg-white px-2 py-1 text-xs font-semibold text-black'>{item.title}</p>
           </div>
         ))}
       </InfiniteMovingCards>
-    </div>
-  );
-};
-
-export const InfiniteMovingleft = () => {
-  return (
-    <div className='relative flex flex-col items-center justify-center overflow-hidden rounded-md antialiased'>
-      <div className='mt-2 flex flex-col items-center justify-center gap-y-2'>
-        <Image
-          src={'https://cdn.iconscout.com/icon/free/png-512/free-figma-3521426-2944870.png?f=webp&w=256'}
-          width={100}
-          height={100}
-          className='h-8 w-8 rounded-md'
-          alt={'Figma'}
-        />
-        <p className='rounded-md bg-white px-2 py-1 text-xs font-semibold text-black'>{'Figma'}</p>
-      </div>
     </div>
   );
 };
