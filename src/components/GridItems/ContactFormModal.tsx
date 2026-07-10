@@ -35,6 +35,7 @@ export const ContactFormModal = ({ open, onCloseAction }: { open: boolean; onClo
 
   return (
     <dialog
+      aria-label='Contact form modal'
       ref={dialogRef}
       onClose={onCloseAction}
       onClick={e => {

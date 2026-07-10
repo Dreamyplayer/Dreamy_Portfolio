@@ -21,6 +21,7 @@ export const ProjectsModal = ({ open, onCloseAction }: { open: boolean; onCloseA
       onClick={e => {
         if (e.target === dialogRef.current) onCloseAction();
       }}
+      aria-label='Projects modal'
       className='m-auto max-h-[85vh] w-full max-w-4xl overflow-y-auto rounded-xl border border-black/10 bg-white p-0 shadow-2xl backdrop:bg-black/50 dark:border-white/10 dark:bg-[#121316]'
     >
       <div className='p-6'>
