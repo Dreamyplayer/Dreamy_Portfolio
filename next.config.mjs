@@ -10,6 +10,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'media1.tenor.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'github-readme-stats.vercel.app',
+      },
     ],
   },
 };
