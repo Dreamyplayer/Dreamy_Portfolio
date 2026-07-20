@@ -63,3 +63,66 @@ export const projects: Project[] = [
     linkLabel: 'View Project',
   },
 ];
+
+export const adventures = [
+  {
+    emoji: '🏴‍☠️',
+    title: 'Current Voyage',
+    status: '🌊 Sailing',
+    description: 'Exploring new ideas and building better web experiences.',
+  },
+  {
+    emoji: '⚔️',
+    title: 'Current Arc',
+    status: '📖 Ongoing',
+    description: 'Learning, building, and preparing for the next adventure.',
+  },
+  {
+    emoji: '💪',
+    title: 'Training My Haki',
+    status: '⚡ Training',
+    description: 'Sharpening frontend, backend, and problem-solving skills.',
+  },
+  {
+    emoji: '🌊',
+    title: 'New Seas',
+    status: '🧭 Exploring',
+    description: 'Trying new technologies and discovering better solutions.',
+  },
+  {
+    emoji: '💰',
+    title: 'Treasure Hunt',
+    status: '🪙 Searching',
+    description: 'Collecting experience while enjoying every step forward.',
+  },
+  {
+    emoji: '⭐',
+    title: 'Rising Bounty',
+    status: '📈 Leveling Up',
+    description: 'Every project brings new lessons and more experience.',
+  },
+  {
+    emoji: '🗺️',
+    title: 'Next Island',
+    status: '🏝️ Arrived',
+    description: 'Every technology is another island worth exploring.',
+  },
+  {
+    emoji: '📖',
+    title: 'Adventure Log',
+    status: '✍️ Writing',
+    description: 'Recording lessons, victories, and memorable milestones.',
+  },
+  {
+    emoji: '🚢',
+    title: 'Dream Bigger',
+    status: '🚀 Full Speed',
+    description: 'Always sailing toward bigger goals and better craftsmanship.',
+  },
+  {
+    emoji: '☀️',
+    title: 'Gathering My Crew',
+    status: '🤝 Recruiting',
+    description: 'Learning, collaborating, and growing with every challenge.',
+  },
+];
