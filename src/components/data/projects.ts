@@ -69,60 +69,70 @@ export const adventures = [
     emoji: '🏴‍☠️',
     title: 'Current Voyage',
     status: '🌊 Sailing',
-    description: 'Exploring new ideas and building better web experiences.',
+    description:
+      'Sailing through new ideas, experimenting with modern web technologies, and enjoying every challenge.',
   },
   {
     emoji: '⚔️',
     title: 'Current Arc',
     status: '📖 Ongoing',
-    description: 'Learning, building, and preparing for the next adventure.',
+    description:
+      'Learning. Building. Experimenting. Preparing for whatever the next island brings.',
   },
   {
     emoji: '💪',
     title: 'Training My Haki',
     status: '⚡ Training',
-    description: 'Sharpening frontend, backend, and problem-solving skills.',
+    description:
+      'Strengthening my frontend, backend, and problem-solving abilities—one challenge at a time.',
   },
   {
     emoji: '🌊',
     title: 'New Seas',
     status: '🧭 Exploring',
-    description: 'Trying new technologies and discovering better solutions.',
+    description:
+      'Discovering better ways to build fast, beautiful, and meaningful digital experiences.',
   },
   {
     emoji: '💰',
     title: 'Treasure Hunt',
     status: '🪙 Searching',
-    description: 'Collecting experience while enjoying every step forward.',
+    description:
+      'Collecting experience, mastering new skills, and enjoying the journey more than the destination.',
   },
   {
     emoji: '⭐',
     title: 'Rising Bounty',
     status: '📈 Leveling Up',
-    description: 'Every project brings new lessons and more experience.',
+    description:
+      'Every project, bug, and lesson adds to my experience—and maybe my bounty too.',
   },
   {
     emoji: '🗺️',
     title: 'Next Island',
     status: '🏝️ Arrived',
-    description: 'Every technology is another island worth exploring.',
+    description:
+      'Every new technology feels like another island waiting to be explored.',
   },
   {
     emoji: '📖',
     title: 'Adventure Log',
     status: '✍️ Writing',
-    description: 'Recording lessons, victories, and memorable milestones.',
+    description:
+      'Recording each lesson, challenge, and victory as I continue my journey as a developer.',
   },
   {
     emoji: '🚢',
     title: 'Dream Bigger',
     status: '🚀 Full Speed',
-    description: 'Always sailing toward bigger goals and better craftsmanship.',
+    description:
+      'Just another stop on the journey toward becoming a world-class software engineer.',
   },
   {
     emoji: '☀️',
     title: 'Gathering My Crew',
     status: '🤝 Recruiting',
-    description: 'Learning, collaborating, and growing with every challenge.',
+    description:
+      'Learning from great people, building meaningful things, and preparing for bigger adventures.',
   },
 ];
